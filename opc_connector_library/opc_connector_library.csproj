@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{84EDA32A-B1C9-4E32-A79E-40DCA4E2D070}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>opc_connector_library</RootNamespace>
+        <AssemblyName>opc_connector_library</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="OpcComRcw">
+          <HintPath>..\..\..\..\Downloads\OpcComRcw.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcNetApi">
+          <HintPath>..\..\..\..\Downloads\OpcNetApi.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcNetApi.Com">
+          <HintPath>..\..\..\..\Downloads\OpcNetApi.Com.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcNetApi.Xml">
+          <HintPath>..\..\..\..\Downloads\OpcNetApi.Xml.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcRcw.Ae">
+          <HintPath>..\..\..\..\Downloads\OpcRcw.Ae.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcRcw.Comn">
+          <HintPath>..\..\..\..\Downloads\OpcRcw.Comn.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcRcw.Da">
+          <HintPath>..\..\..\..\Downloads\OpcRcw.Da.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcRcw.Dx">
+          <HintPath>..\..\..\..\Downloads\OpcRcw.Dx.dll</HintPath>
+        </Reference>
+        <Reference Include="OpcRcw.Hda">
+          <HintPath>..\..\..\..\Downloads\OpcRcw.Hda.dll</HintPath>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Application\Mappers\PlcSettingsMapper.cs" />
+        <Compile Include="Domain\Constants\FeatureFlagConstant.cs" />
+        <Compile Include="Bootstrapping.cs" />
+        <Compile Include="Domain\Constants\DataTypesConstant.cs" />
+        <Compile Include="Domain\Constants\FieldBindingTypesConstant.cs" />
+        <Compile Include="Domain\Constants\OperationsConstant.cs" />
+        <Compile Include="Domain\Constants\PlcConstant.cs" />
+        <Compile Include="Domain\Data\OpcValueItemData.cs" />
+        <Compile Include="Domain\Dtos\OpcValueItem.cs" />
+        <Compile Include="Domain\Dtos\ParamPlcSettingsDto.cs" />
+        <Compile Include="Domain\Models\Loader.cs" />
+        <Compile Include="Domain\Models\OpcSettingValue.cs" />
+        <Compile Include="Domain\Models\PlcSetting.cs" />
+        <Compile Include="Infrastructure\Adapters\OpcDaAdapter.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
